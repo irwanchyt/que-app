@@ -13,32 +13,38 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-
+Route::get('/', function () {return view('welcome');});
 Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/que','CategoryController@index')->name('category.index');
-Route::get('/admin','AdminController@add')->name('admin.add');
-Route::post('/admin/store','AdminController@store')->name('admin.store');
-Route::get('/admin/{id}/edit','AdminController@edit')->name('admin.edit');
-Route::post('/admin/{id}/update','AdminController@update')->name('admin.update');
-Route::get('/admin/{id}/destroy','AdminController@destroy')->name('admin.destroy');
 
-Route::get('/category','CategoryController@index')->name('category.index');
-Route::post('/category/store','CategoryController@store')->name('category.store');
-Route::get('/category/{id}/edit','CategoryController@edit')->name('category.edit');
-Route::post('/category/{id}/update','CategoryController@update')->name('category.update');
-Route::get('/category/{id}/destroy','CategoryController@destroy')->name('category.destroy');
-Route::get('/ticket',function(){
+Route::middleware(['auth'])->group(function(){
 
-    return view('pages.ticket');
+    Route::get('/dasboard', function(){return view('pages.dashboard');});
+
+    Route::prefix('admin')->name('admin.')->group(function(){
+
+        Route::get('/admin','AdminController@add')->name('add');
+        Route::post('/store','AdminController@store')->name('store');
+        Route::get('/{id}/edit','AdminController@edit')->name('edit');
+        Route::post('/{id}/update','AdminController@update')->name('update');
+        Route::get('/{id}/destroy','AdminController@destroy')->name('destroy');
+
+    });
+
+    Route::prefix('category')->name('category.')->group(function(){
+
+        Route::get('/','CategoryController@index')->name('index');
+        Route::post('/store','CategoryController@store')->name('store');
+        Route::get('/{id}/edit','CategoryController@edit')->name('edit');
+        Route::post('/{id}/update','CategoryController@update')->name('update');
+        Route::get('/{id}/destroy','CategoryController@destroy')->name('destroy');
+
+
+
+    });
+
+
 });
 
-Route::get('/dasboard', function(){
+Route::get('/ticket',function(){ return view('pages.ticket');});
 
-    return view('pages.dashboard');
-});
