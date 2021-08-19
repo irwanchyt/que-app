@@ -16,7 +16,6 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('number_que', 100);
-            $table->foreignId('category_id')->constrained('categories');
             $table->foreignId('counter_id')->constrained('counters');
             $table->timestamps();
             $table->softDeletes();

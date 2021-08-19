@@ -15,16 +15,13 @@ class CounterSeeder extends Seeder
         Counter::insert([
             [
                 'name' => 'Loket 1',
+                'category_id' => '1',
             ],
             [
                 'name' => 'Loket 2',
+                'category_id' => '2'
             ],
-            [
-                'name' => 'Loket 3',
-            ],
-            [
-                'name' => 'Loket 4',
-            ],
+
         ]);
     }
 }

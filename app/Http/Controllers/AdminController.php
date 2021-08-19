@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
-use Alert;
+use \RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
-    
+
     public function add(){
 
         $users = User::where('role','Admin')->paginate(4);
@@ -18,12 +18,12 @@ class AdminController extends Controller
     }
 
     public function store(Request $request){
-        
+
         $this->validate($request, [
             'name' => 'required|string|max:200',
             'email' => 'required|string|email|max:100',
             'phone' => 'required|string|max:100',
-           
+
         ]);
 
         try {
@@ -32,7 +32,7 @@ class AdminController extends Controller
             $user->name     = strtoupper($request->name);
             $user->email    = ucwords($request->email);
             $user->phone    =  $request->phone;
-             $user->password = bcrypt($request->password);
+            $user->password = bcrypt($request->password);
             $user->role = 'Admin';
 
             $user->save();
@@ -41,31 +41,31 @@ class AdminController extends Controller
             Alert::error('Gagal Tambah Admin');
             return redirect()->back();
         }
-        Alert::success(' Data Berhasil Di tambah ', 'klik tombol ok');
+       Alert::success(' Data Berhasil Di tambah ', 'klik tombol ok');
         return back();
-    
+
     }
 
     public function edit($id){
-        
-        $users = User::findOrFail($id); 
+
+        $users = User::findOrFail($id);
 
         return view('pages.akun.edit',['users'=>$users]);
     }
 
     public function update(Request $request,$id){
 
-        $user = User::findOrFail($id); 
+        $user = User::findOrFail($id);
 
         $this->validate($request, [
             'name' => 'required|string|max:200',
             'email' => 'required|string|email|max:100',
             'phone' => 'required|string|max:100',
-        
+
         ]);
 
         try {
-          
+
 
             $user->name     = strtoupper($request->name);
             $user->email    = ucwords($request->email);
@@ -84,10 +84,10 @@ class AdminController extends Controller
 
     public function destroy($id){
 
-        $users = User::findOrFail($id); 
+        $users = User::findOrFail($id);
 
         try {
-           
+
 
             $users->delete();
         } catch (\Exception $e) {

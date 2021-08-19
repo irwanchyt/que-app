@@ -4,6 +4,7 @@
 rel="stylesheet">
 <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
 rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/plugins/forms/selectBoxIt/selectBoxIt.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/vendors.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/app.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/menu/menu-types/vertical-menu.css') }}">

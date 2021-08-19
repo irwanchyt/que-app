@@ -14,7 +14,7 @@
                         <i class="icon-user text-white font-large-2 float-left"></i>
                       </div>
                       <div class="media-body text-white text-right">
-                        <h3 class="text-white">4</h3>
+                        <h3 class="text-white">{{$count}}</h3>
                         <span>Admin</span>
                       </div>
                     </div>
@@ -73,7 +73,7 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
         </section>
 
 
@@ -85,8 +85,8 @@
                 <h4 class="card-title">DATA CUSTOMER</h4>
                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
               </div>
-              <div class="card-content collapse show">
-                    <div class="table-responsive"> 
+              <div class="card-content collapse show pl-2 pr-2 pb-2">
+                    <div class="table-responsive">
                         <div class="table-responsive">
                             <table class="table table-bordered mb-0">
                             <thead>

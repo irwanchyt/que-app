@@ -15,7 +15,6 @@ class Ticket extends Model
      *
      * @var array
      */
-  
 
     // relasi ke satu conter
     public function counter()
@@ -24,8 +23,8 @@ class Ticket extends Model
     }
 
      // relasi ke satu category
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
+    // public function category()
+    // {
+    //     return $this->belongsTo(Category::class);
+    // }
 }

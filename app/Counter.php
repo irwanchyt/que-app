@@ -12,11 +12,22 @@ class Counter extends Model
      *
      * @var array
      */
+    protected $table = 'counters';
+
+    protected $fillable = [
+        'name','category_id'
+    ];
+
     protected $guarded = [];
 
     // relasi ke banyak tiket
     public function ticket()
     {
         return $this->hasMany(Ticket::class);
+    }
+
+    public function category(){
+
+        return $this->belongsTo(Category::class);
     }
 }
