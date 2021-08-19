@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
-use Alert;
+use \RealRashid\SweetAlert\Facades\Alert;
 
 
 class CategoryController extends Controller
@@ -69,7 +69,7 @@ class CategoryController extends Controller
 
         try{
 
-            
+
 
             $category->name = $request->name;
             $category->initial = $request->initial;

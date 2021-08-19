@@ -43,6 +43,11 @@ Route::middleware(['auth'])->group(function(){
 
     });
 
+    Route::prefix('profil')->name('profil.')->group(function(){
+        Route::get('/','ProfilController@index')->name('index');
+
+    });
+
 
 });
 
