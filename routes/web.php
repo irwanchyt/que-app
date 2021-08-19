@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-Route::get('/', function () {return view('welcome');});
+
+Route::get('/', 'WelcomeController@index')->name('welcome');
+
+Route::get('/counter/{id}', 'WelcomeController@show')->name('welcome.show');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function(){
@@ -22,25 +26,19 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dasboard', function(){return view('pages.dashboard');});
 
     Route::prefix('admin')->name('admin.')->group(function(){
-
-        Route::get('/admin','AdminController@add')->name('add');
+        Route::get('/','AdminController@add')->name('add');
         Route::post('/store','AdminController@store')->name('store');
         Route::get('/{id}/edit','AdminController@edit')->name('edit');
         Route::post('/{id}/update','AdminController@update')->name('update');
         Route::get('/{id}/destroy','AdminController@destroy')->name('destroy');
-
     });
 
     Route::prefix('category')->name('category.')->group(function(){
-
         Route::get('/','CategoryController@index')->name('index');
         Route::post('/store','CategoryController@store')->name('store');
         Route::get('/{id}/edit','CategoryController@edit')->name('edit');
         Route::post('/{id}/update','CategoryController@update')->name('update');
         Route::get('/{id}/destroy','CategoryController@destroy')->name('destroy');
-
-
-
     });
 
     Route::prefix('profil')->name('profil.')->group(function(){
@@ -48,8 +46,13 @@ Route::middleware(['auth'])->group(function(){
 
     });
 
+    Route::prefix('loket')->name('loket.')->group(function(){
 
+        Route::get('/','LoketController@index')->name('index');
+        Route::post('/store','LoketController@store')->name('store');
+        Route::get('/{id}/edit','LoketController@edit')->name('edit');
+        Route::post('/{id}/update','LoketController@update')->name('update');
+        Route::get('/{id}/destroy','LoketController@destroy')->name('destroy');
+
+    });
 });
-
-Route::get('/ticket',function(){ return view('pages.ticket');});
-

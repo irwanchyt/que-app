@@ -31,7 +31,7 @@
                 </div>
               </div>
               <div class="card-content collapse show">
-                    <div class="table-responsive"> 
+                    <div class="table-responsive">
                         <div class="table-responsive pr-1 pl-1 pb-1">
                             <table class="table table-bordered mb-0">
                             <thead>
@@ -56,15 +56,15 @@
                                         <a href="{{ route('admin.destroy',$admin->id) }}" class="btn btn-danger"><i class="la la-trash"></i></a>
                                     </td>
                                 </tr>
-                                
+
                             @empty
-                                <tr>
-                                    <h5>Data Belum Ada</h5>
+                                <tr class="text-center">
+                                    <td colspan="5"><h5>Data Belum Ada</h5></td>
                                 </tr>
                             @endforelse
-                                
+
                             </tbody>
-                          
+
                         </table>
                           {{ $users->links() }}
                         </div>
@@ -74,9 +74,9 @@
           </div>
         </div>
         <!-- Bordered table end -->
-            
-                       
-                        
+
+
+
         <!-- Modal -->
         <div class="modal animated fadeInRight text-left" id="fadeInRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel56" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -168,12 +168,12 @@
                     <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-outline-primary">Save changes</button>
                 </div> --}}
-                        
+
                 </div>
             </div>
         </div>
 
     </div>
 
-       
+
 @endsection

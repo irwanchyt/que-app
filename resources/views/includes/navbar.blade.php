@@ -4,7 +4,7 @@
         <ul class="nav navbar-nav flex-row">
           <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
           <li class="nav-item">
-            <a class="navbar-brand" href="/dasboard">
+            <a class="navbar-brand" href="/home">
               {{-- <img class="brand-logo" alt="modern admin logo" src="../../../app-assets/images/logo/logo.png"> --}}
               <h3 class="brand-text">Que App</h3>
             </a>
@@ -27,7 +27,7 @@
                   <span class="user-name text-bold-700">{{ Auth::user()->name }}</span>
                 </span>
                 <span class="avatar avatar-online">
-                  <img src="../../../app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
+                  <img src="{{ asset('images/128-1280585_user-icon-fa-fa-user-circle.png') }}" alt="avatar"><i></i></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{ route('profil.index') }}"><i class="ft-user"></i> Profile</a>
                 <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboard');
+        $users = User::where('role','Admin')->get();
+        $count = $users->count();
+
+        // return $count;
+
+        return view('pages.dashboard',['users'=>$users,'count'=>$count,]);
     }
 }

@@ -1,25 +1,23 @@
 <html>
 <head>
-	<title>TIKET ANTRIAN</title>
+	<title>{{ $counter->name }}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 <body>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mt-4">
                 <div class="card text-center">
                     <div class="card-header">
-                        <p>NO ANTRIAN</p>
+                        <p  style="text-transform: uppercase;">NO ANTRIAN {{ $counter->name }}</p>
                     </div>
                     <div class="card-body">
-
-                        <h1><b>1</b></h1>
-
+                        <h1><b>{{ $count->number_que }} </b></h1>
+                        <h5><b>{{ $count->created_at }} </b></h5>
                     </div>
-
                     <div class="card-foo">
-                        <h5>LOKET 1</h5>
+                        <h5 style="text-transform: uppercase;">{{ $count->category->name }}</h5>
                     </div>
                 </div>
             </div>
