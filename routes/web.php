@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'WelcomeController@index')->name('welcome');
+Route::get('/counter/{id}', 'WelcomeController@show')->name('welcome.show');
 
 Auth::routes();
 
