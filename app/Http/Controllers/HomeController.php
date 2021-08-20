@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
+use App\Visitor;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 class HomeController extends Controller
 {
     /**
@@ -23,11 +26,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::where('role','Admin')->get();
-        $count = $users->count();
+      
 
+        if(auth()->user()->role === 'Admin') {
+
+            $visitor = Visitor::whereHas('counter', function(Builder $query) {
+                $query->where('user_id', auth()->id());
+             })->get();
+
+            return view('pages.admin.dashboard',['visitor'=>$visitor]);
+        } else {
+
+            $users = User::where('role','Admin')->get();
+            $visitor = Visitor::paginate(5);
+            $count = $users->count();
+            return view('pages.dashboard',['users'=>$users,'count'=>$count,'visitor'=>$visitor]);
+        }
         // return $count;
 
-        return view('pages.dashboard',['users'=>$users,'count'=>$count,]);
+       
     }
 }

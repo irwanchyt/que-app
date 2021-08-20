@@ -25,6 +25,7 @@
                                    <th>No</th>
                                    <th>Nama Loket</th>
                                    <th>Nama Pelayanan</th>
+                                   <th>Nama Admin</th>
                                    <th class="text-center">aksi</th>
                                </tr>
                            </thead>
@@ -35,6 +36,7 @@
                                        <th>{{ $loop->iteration }}</th>
                                        <td>{{ $item->name }}</td>
                                        <td>{{ $item->category->name }}</td>
+                                       <td>{{ $item->user->name }}</td>
                                        <td class="text-center">
                                            <a href="{{ route('loket.edit',$item->id) }}" class="btn btn-warning"><i class="la la-pencil"></i></a>
                                            <a href="{{ route('loket.destroy',$item->id) }}" class="btn btn-danger"><i class="la la-trash"></i></a>
@@ -100,6 +102,22 @@
                             <select class="form-control" id="exampleFormControlSelect1" name="category_id">
                                 <option></option>
                                 @foreach ($category as $item )
+
+                                    <option value="{{ $item->id }}">{{$item->name}}</option>
+
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="phone" class="col-md-4 col-form-label text-md-right">Admin</label>
+
+                        <div class="col-md-6">
+
+                            <select class="form-control" id="exampleFormControlSelect1" name="user_id">
+                                <option></option>
+                                @foreach ($users as $item )
 
                                     <option value="{{ $item->id }}">{{$item->name}}</option>
 

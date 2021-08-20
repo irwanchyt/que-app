@@ -15,5 +15,14 @@ rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/fonts/simple-line-icons/style.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colors/palette-gradient.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/plugins/animate/animate.css') }}">
-
+ <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/plugins/ui/jqueryui.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+
+<style>
+
+    a.ui-state-default.ui-state-highlight.ui-state-active {
+
+        background-color:palevioletred;
+    }
+
+</style>

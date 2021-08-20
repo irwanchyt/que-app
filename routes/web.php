@@ -55,4 +55,14 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/{id}/destroy','LoketController@destroy')->name('destroy');
 
     });
+
+    Route::prefix('visitor')->name('visitor.')->group(function(){
+
+        Route::get('/','VisitorController@index')->name('index');
+        Route::post('/store','VisitorController@store')->name('store');
+        Route::get('/{id}/edit','VisitorController@edit')->name('edit');
+        Route::post('/{id}/update','VisitorController@update')->name('update');
+        Route::get('/{id}/destroy','VisitorController@destroy')->name('destroy');
+
+    });
 });

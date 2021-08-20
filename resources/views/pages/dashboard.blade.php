@@ -86,43 +86,36 @@
                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
               </div>
               <div class="card-content collapse show pl-2 pr-2 pb-2">
-                    <div class="table-responsive">
-                        <div class="table-responsive">
-                            <table class="table table-bordered mb-0">
-                            <thead>
+                <div class="table-responsive">
+                    <table class="table table-bordered mb-0">
+                        <thead>
+                            <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>umur</th>
+                            <th>Hp</th>
+                            <th>Pelayanan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($visitor as $item )
                                 <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Pelayanan</th>
-                                <th>Admin</th>
-                                <th>Tanggal</th>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>{{$item->name}}</td>
+                                    <td>{{ $item->age}}</td>
+                                    <td>{{ $item->phone }}</td>
+                                    <td>{{$item->counter->name}}</td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">2</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@TwBootstrap</td>
-                                <td>@TwBootstrap</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>@fat</td>
-                                </tr>
-                            </tbody>
-                            </table>
-                        </div>
+                            @empty
+                                
+                            @endforelse
+                          
+                           
+                        </tbody>
+                        </table>
+                        {{ $visitor->links() }}
+                </div>
+
                     </div>
               </div>
             </div>

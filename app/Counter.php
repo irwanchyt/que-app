@@ -15,7 +15,7 @@ class Counter extends Model
     protected $table = 'counters';
 
     protected $fillable = [
-        'name','category_id'
+        'name','category_id','admin_id'
     ];
 
     protected $guarded = [];
@@ -29,5 +29,9 @@ class Counter extends Model
     public function category(){
 
         return $this->belongsTo(Category::class);
+    }
+    public function user(){
+
+        return $this->belongsTo(User::class);
     }
 }

@@ -11,4 +11,9 @@ class Admin extends Model
     protected $fillable = [
         'user_id','category_id','name','phone','address'
     ];
+
+    public function counter(){
+
+        return $this->hasOne(Counter::class);
+    }
 }
