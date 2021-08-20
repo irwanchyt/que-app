@@ -12,18 +12,23 @@ class WelcomeController extends Controller
     public function index()
     {
       
-         $counters = Counter::with('ticket')->get();
+         $counters = Counter::with('ticket.category')->get();
 
         return view('welcome', compact('counters'));
     }
 
     public function show($id)
     {
-             $counter = Counter::with('ticket.category')->findOrFail($id);
-            foreach($counter->ticket as $count){
-                $count->category['number_que'];
-            }
-         
+         $counter = Counter::with('ticket.category')->findOrFail($id);
+
+        foreach($counter->ticket as $count){
+            echo $count->category['number_que'];
+        }
+     $count->with('category')->find($count->id);
+        //  return $counts = $count->whereHas('category', function ($q) use ($id){
+        //      return $q->where('category_id', $id);
+        //  })->with('category')->first();
+
         return view('pages.ticket', compact('counter', 'count'));
     }
 }
