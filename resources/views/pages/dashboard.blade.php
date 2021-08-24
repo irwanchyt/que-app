@@ -75,7 +75,17 @@
             </div>
           </div>
         </section>
-
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card">
+                        <div style="width:100%;">
+                            {!! $chartjs->render() !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
          <!-- Bordered table start -->
         <div class="row">
@@ -107,10 +117,10 @@
                                     <td>{{$item->counter->name}}</td>
                                 </tr>
                             @empty
-                                
+
                             @endforelse
-                          
-                           
+
+
                         </tbody>
                         </table>
                         {{ $visitor->links() }}
@@ -121,6 +131,7 @@
             </div>
           </div>
         </div>
+
         <!-- Bordered table end -->
 
     </div>

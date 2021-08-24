@@ -23,7 +23,7 @@ class Counter extends Model
     // relasi ke banyak tiket
     public function ticket()
     {
-        return $this->hasMany(Ticket::class);
+        return $this->hasOne(Ticket::class);
     }
 
     public function category(){

@@ -21,7 +21,7 @@ Route::get('/counter/{id}', 'WelcomeController@show')->name('welcome.show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth','role:Super Admin'])->group(function(){
 
     Route::get('/dasboard', function(){return view('pages.dashboard');});
 
@@ -56,6 +56,11 @@ Route::middleware(['auth'])->group(function(){
 
     });
 
+
+});
+
+Route::middleware(['auth','role:Admin'])->group(function(){
+
     Route::prefix('visitor')->name('visitor.')->group(function(){
 
         Route::get('/','VisitorController@index')->name('index');
@@ -66,3 +71,5 @@ Route::middleware(['auth'])->group(function(){
 
     });
 });
+
+Route::get('/tes','TicketController@index')->name('tiket');
