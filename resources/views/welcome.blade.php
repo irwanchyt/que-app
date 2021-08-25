@@ -84,7 +84,7 @@
                 <div class="col-md-4 mt-5">
                     <div class="card text-center" style="padding:10px 20px">
                         @forelse ($counters as $counter)
-                        <a href="{{ route('welcome.show', $counter->id) }}" class="btn btn-warning btn-lg" style="text-transform: uppercase"><b>{{ $counter->name }}</b></a> <br>
+                        <a href="{{ route('welcome.show', $counter->id) }}" class="btn btn-warning btn-lg mt-2 mb-2" style="text-transform: uppercase"><b>{{ $counter->name }}</b></a> <br>
                         @empty
                         <h3>Kosong</h3>
                         @endforelse
@@ -144,8 +144,8 @@
 
         -->
     </script>
-
-    <!-- Menampilkan Hari, Bulan dan Tahun -->
+    <script>
+	
 
 </body>
 

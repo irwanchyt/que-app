@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Visitor;
+use App\Counter;
+use App\Ticket;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -34,8 +36,22 @@ class HomeController extends Controller
             $visitor = Visitor::whereHas('counter', function(Builder $query) {
                 $query->where('user_id', auth()->id());
              })->get();
+             
+             $t = $visitor->count();
 
-            return view('pages.admin.dashboard',['visitor'=>$visitor]);
+             $counter = Counter::all();
+             foreach($counter as $v){
+
+                if(auth()->id() === $v->user_id){
+
+                    $loket = $v->name;
+                }
+
+             }
+             //return $loket;
+             $ticket = Ticket::with('user')->where('number_que','=',auth()->id())->count();
+
+            return view('pages.admin.dashboard',['visitor'=>$visitor,'ticket'=>$ticket,'t'=>$t,'loket'=>$loket]);
         } else {
 
             $users = User::where('role','Admin')->get();

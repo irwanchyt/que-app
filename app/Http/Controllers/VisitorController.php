@@ -23,6 +23,8 @@ class VisitorController extends Controller
 
     public function store(Request $request){
 
+        
+
         $this->validate($request,[
 
             'name'   => 'required',
@@ -78,7 +80,7 @@ class VisitorController extends Controller
 
         try{
 
-          
+
             $visitor->name = $request->name;
             $visitor->age = $request->age;
             $visitor->gender = $request->gender;

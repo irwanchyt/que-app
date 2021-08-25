@@ -21,6 +21,10 @@ class Ticket extends Model
     {
         return $this->belongsTo(Counter::class);
     }
+    public function user(){
+
+        return $this->belongsTo('App\User');
+    }
 
      // relasi ke satu category
     // public function category()

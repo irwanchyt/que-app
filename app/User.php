@@ -41,4 +41,9 @@ class User extends Authenticatable
 
         return $this->hasOne(Counter::class);
     }
+
+    public function ticket(){
+
+        return $this->hasManyThrough('App\Ticket','App\Counter');
+    }
 }
