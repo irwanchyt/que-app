@@ -35,8 +35,10 @@ class HomeController extends Controller
 
             $visitor = Visitor::whereHas('counter', function(Builder $query) {
                 $query->where('user_id', auth()->id());
-             })->get();
-             
+             })->with(['counter.user'])->paginate(5);
+
+            //  return $visitor;
+
              $t = $visitor->count();
 
              $counter = Counter::all();
@@ -48,7 +50,9 @@ class HomeController extends Controller
                 }
 
              }
-             //return $loket;
+
+            //  return $loket;
+            //  return $loket;
              $ticket = Ticket::with('user')->where('number_que','=',auth()->id())->count();
 
             return view('pages.admin.dashboard',['visitor'=>$visitor,'ticket'=>$ticket,'t'=>$t,'loket'=>$loket]);

@@ -15,7 +15,6 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
   @include('sweetalert::alert')
   @include('includes.navbar')
   @include('includes.sidebar')
-
     <div class="app-content content">
         <div class="content-body">
              @yield('content')

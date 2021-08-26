@@ -66,7 +66,7 @@
                                     <th>Pelayanan</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody onmousedown='return false;'>
                                     @forelse ($visitor as $item )
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
@@ -88,7 +88,7 @@
 
                                 </tbody>
                             </table>
-
+                            {{ $visitor->links() }}
                         </div>
 
                     </div>
@@ -360,7 +360,8 @@
     //      responsiveVoice.speak(document.getElementById("tr").textContent,"Indonesian Female","{rate:-1}");
     //   });
 
-
+        if(typeof document.onselectstart!="undefined"){document.onselectstart=new Function("return false")}
+        else{document.onmousedown= new Function ("return false");document.onmouseup= new Function("return true");}
     });
 </script>
 @endpush

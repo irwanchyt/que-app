@@ -23,7 +23,7 @@
             <div class="card">
               <div class="card-header">
                 <div class="row">
-                 
+
                 </div>
               </div>
               <div class="card-content collapse show">
@@ -66,7 +66,7 @@
                             </tbody>
 
                         </table>
-                          {{-- {{ $visitor->links() }} --}}
+                          {{ $visitor->links() }}
                         </div>
                     </div>
               </div>

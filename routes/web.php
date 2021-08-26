@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
-
+Route::get('/board','BoardController@index')->name('board.index');
 Route::get('/counter/{id}', 'WelcomeController@show')->name('welcome.show');
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -68,6 +68,10 @@ Route::middleware(['auth','role:Admin'])->group(function(){
         Route::get('/{id}/edit','VisitorController@edit')->name('edit');
         Route::post('/{id}/update','VisitorController@update')->name('update');
         Route::get('/{id}/destroy','VisitorController@destroy')->name('destroy');
+
+    });
+    Route::prefix('profil')->name('profil.')->group(function(){
+        Route::get('/','ProfilController@index')->name('index');
 
     });
 });

@@ -67,7 +67,7 @@ class LoketController extends Controller
 
             'name'        => 'required',
             'category_id' => 'required',
-            'user_id'    => 'required',
+            'user_id'    => 'required|unique',
         ]);
 
         try{

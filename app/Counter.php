@@ -34,4 +34,8 @@ class Counter extends Model
 
         return $this->belongsTo(User::class);
     }
+    public function visitor(){
+
+        return $this->hasMany('App\Visitor');
+    }
 }

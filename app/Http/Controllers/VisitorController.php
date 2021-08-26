@@ -15,7 +15,7 @@ class VisitorController extends Controller
 
         $visitor = Visitor::whereHas('counter', function(Builder $query) {
                 $query->where('user_id', auth()->id());
-        })->get();
+        })->paginate(3);
 
         // return $visitor;
         return view('pages.admin.visitor.index',['visitor'=>$visitor]);
@@ -23,7 +23,7 @@ class VisitorController extends Controller
 
     public function store(Request $request){
 
-        
+
 
         $this->validate($request,[
 
